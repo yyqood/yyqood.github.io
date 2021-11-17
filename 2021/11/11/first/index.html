@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="js原型及原型链构造函数1.实例成员实例成员就是在构造函数内部，通过this添加的成员。实例成员只能通过实例化的对象来访问。    function Star(name,age) {        ,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>十一月 11, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="js原型及原型链"><a href="#js原型及原型链" class="headerlink" title="js原型及原型链"></a>js原型及原型链</h1><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p><strong>1.实例成员</strong><br>实例成员就是在构造函数内部，通过this添加的成员。实例成员只能通过实例化的对象来访问。<br>    function Star(name,age) {<br>        //实例成员<br>        this.name = name;<br>        this.age = age;<br>    }<br><strong>2.静态成员</strong><br>在构造函数本身上添加的成员，只能通过构造函数来访问<br>    //静态成员<br>    Star.sex = ‘女’;</p>
+<p>let stars = new Star(‘小红’,18);<br>console.log(stars);      // Star {name: “小红”, age: 18}<br>console.log(stars.sex);  // undefined  </p>
+<p>console.log(Star.name); //Star<br>console.log(Star.sex);  //女</p>
+<h3 id="通过构造函数创建对象（实例化）"><a href="#通过构造函数创建对象（实例化）" class="headerlink" title="通过构造函数创建对象（实例化）"></a>通过构造函数创建对象（实例化）</h3><p><strong>1.how?</strong><br>    function Father(name) {<br>        this.name = name;<br>    }<br>    let son = new Father(‘Lisa’);  //新建对象<br>    console.log(son);   //Father {name: “Lisa”}<br><strong>2.过程</strong><br>    (1) 创建一个空对象 son {}<br>    (2) 为 son 准备原型链连接<br>    son.<strong>proto</strong> = Father.prototype<br>    (3) 重新绑定this，使构造函数的this指向新对象<br>    (4) 为新对象属性赋值<br>    (5) 返回this return this，此时的新对象就拥有了构造函数的方法和属性<br><strong>3.</strong><br>(1)在构造函数上直接定义方法，不共享<br>    function Star() {<br>        this.sing = function () {<br>            console.log(‘我爱唱歌’);<br>        }<br>    }<br>    let stu1 = new Star();<br>    let stu2 = new Star();<br>    stu1.sing();//我爱唱歌<br>    stu2.sing();//我爱唱歌<br>    console.log(stu1.sing === stu2.sing);//false<br>(2)通过原型添加方法，共享</p>
+<p>（如果属性存储的是基本类型，不存在共享问题，是否相同，看值的内容）</p>
+<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>1.what?<br>   object<br>2.作用？<br>   共享方法<br>3.原型中this指向实例<br>4.原型的构造器指向构造函数<br>    console.log(Star.prototype.constructor === Star);//true</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>原型与原型层层相链接的过程即为原型链<br>   使用方法时，先看obj中是否存在此方法，若没有，则去obj的原型找，以此往下一个原型找，直至没有报错</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
