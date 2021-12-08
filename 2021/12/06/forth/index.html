@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>基础知识篇 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="复习一、数据类型：1.分类​      *基本(值)类型
+​          string(任意字符串)
+​          number(任意数字)
+​          boolean(tr,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">基础知识篇</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">基础知识篇</h1>
+        <div class="stuff">
+            <span>十二月 06, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><h3 id="一、数据类型："><a href="#一、数据类型：" class="headerlink" title="一、数据类型："></a>一、数据类型：</h3><h6 id="1-分类"><a href="#1-分类" class="headerlink" title="1.分类"></a>1.分类</h6><p>​      *基本(值)类型</p>
+<p>​          string(任意字符串)</p>
+<p>​          number(任意数字)</p>
+<p>​          boolean(true false)</p>
+<p>​          underfined</p>
+<p>​          null</p>
+<p>​      *对象(引用)类型</p>
+<p>​          Object：任意对象</p>
+<p>​          * Function：一种特别的对象(可以执行)</p>
+<p>​          * Arrey：一种特别的对象(数值下标属性，内部数据是有序的)</p>
+<p>​          </p>
+<p>​            </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line"></span><br><span class="line">​              name:<span class="string">&quot;张贝勒&quot;</span>,</span><br><span class="line"></span><br><span class="line">​              age:<span class="number">18</span></span><br><span class="line"></span><br><span class="line">​            &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">text</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">​&#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-判断"><a href="#2-判断" class="headerlink" title="2.判断"></a>2.判断</h6><p>* typeof (可以判断undefined / 数值 / 字符串 / 布尔值 / function)</p>
+<p>（<em>不能判断 object和null、object和array</em>）</p>
+<p>​      * instanceof  判断<u>对象的具体类型</u></p>
+<p>​      * === (可以判断undefined)</p>
+<p><em>(练习参考02数据类型)</em></p>
+<h6 id="3-附录"><a href="#3-附录" class="headerlink" title="3.附录"></a>3.附录</h6><p>（1）.undefined 与 null 的区别？</p>
+<p>​      undefined 代表定义了，未赋值</p>
+<p>​      null 代表定义并赋值，并且值为null</p>
+<p>（2）.什么时候给变量赋值null？</p>
+<p>​      &lt;1&gt;.初始赋值，表明将要赋值为对象</p>
+<p>​     &lt;2&gt;.结束前，让b指向的对象成为垃圾对象(被垃圾回收器回收)</p>
+<p>（3）.严格区别变量类型与数据类型？</p>
+<p>​      数据的类型： 基本类型和对象类型（类，实例）</p>
+<p>​      变量的类型(变量内存值的类型)</p>
+<p>​            基本类型：保存的就是基本类型数据</p>
+<p>​            引用类型:<strong>保存的是地址值</strong></p>
+<p>​         （eg： var c = { }; //c保存的是个指针）</p>
+<h3 id="二、数据、变量、内存："><a href="#二、数据、变量、内存：" class="headerlink" title="二、数据、变量、内存："></a>二、数据、变量、内存：</h3><p>​            &lt;1&gt;.数据:存储在内存中，代表特定信息的东西，本质是01010、、(可传递，可运算)</p>
+<p>​            &lt;2&gt;.内存(堆和栈)</p>
+<p>​            &lt;3&gt;.内存是用来存储数据的空间，变量是内存的标识</p>
+<h5 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h5><p>(1).关于引用变量赋值的问题: n个引用变量指向同一个对象，通过其中一个变量修改对象内部的数据,那么其他所有变量也被修改了</p>
+<p><em>(练习参考05.1)</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">      a = &#123;<span class="attr">name</span>:<span class="string">&quot;89&quot;</span>,<span class="attr">age</span>:<span class="number">12</span>&#125;;</span><br><span class="line">​     *<span class="function"><span class="keyword">function</span>* <span class="title">f2</span>(<span class="params">*obj*</span>)</span>&#123;</span><br><span class="line">​      *obj* = &#123;<span class="attr">age</span>:<span class="number">15</span>&#125;;</span><br><span class="line">​     &#125;</span><br><span class="line">​     f2(a);</span><br><span class="line">​     <span class="built_in">console</span>.log(a.age); <span class="comment">//12</span></span><br></pre></td></tr></table></figure>
+
+<p>(2).var a = xxx ,a的内存中到底保存的是什么？</p>
+<p>​        xxx是一个基本类型数据，保存的就是这个数据</p>
+<p>​        xxx是一个对象，保存的是对象的地址值</p>
+<p>​        xxx是一个变量，保存的都是XXX的内容(可能是基本数据，也可能是地址值)</p>
+<p>(3).在js调用函数时，传递变量参数时，是值传递还是引用传递?</p>
+<p>​    理解1：值（基本/地址值）传递</p>
+<p>​    理解2：可能是值传递，也可能是引用传递</p>
+<p>(4).JS引擎如何管理内存？</p>
+<p>1.内存生命周期:分配小内存空间、得到使用权、存储数据、可以反复进行操作、释放小内存空间</p>
+<p> 2.释放内存</p>
+<p>​      局部变量：函数执行完自动释放</p>
+<p>​      对象：成为垃圾对象==&gt;垃圾回收器回收</p>
+<h3 id="三、对象："><a href="#三、对象：" class="headerlink" title="三、对象："></a>三、对象：</h3><p>1.什么是对象？</p>
+<p>​     （1）多个数据的封装体</p>
+<p>​    （2） 用来保存多个数据的容器</p>
+<p>​     （3）一个对象代表现实世界中的一个事物</p>
+<p>​    2.为什么要用对象？</p>
+<p>​      统一管理多个数据</p>
+<p>​    3.对象的组成</p>
+<p>​      属性：属性名（字符串）和属性值（任意数据类型）组成</p>
+<p>​      方法：一种特别的属性（属性值是函数）</p>
+<p>​    4.如何访问对象内部的数据？</p>
+<p>​      .属性名</p>
+<p>​      [‘属性名’]  可以传递变量</p>
+<p>（附录：问题：什么时候必须使用[‘属性名’]的方式？</p>
+<p>​      1.属性名包含特殊字符： -  空格</p>
+<p>​      2.属性名不确定）</p>
+<h3 id="四、函数："><a href="#四、函数：" class="headerlink" title="四、函数："></a>四、函数：</h3><p> 1.什么是函数？</p>
+<p>​      实现特定功能的多条语句的封装体</p>
+<p>​      只有函数是可以执行的，其他类型的数据不能执行</p>
+<p>​    2.为什么要使用函数？</p>
+<p>​      提高代码复用</p>
+<p>​      便于阅读交流</p>
+<p>​    3.如何定义函数？</p>
+<p>​      （1）.函数声明  （2）.表达式</p>
+<p>​    4.如何调用（执行）函数？</p>
+<p>​      test():直接调用</p>
+<p>​      obj.text():通过对象调用</p>
+<p>​      new test():new 调用</p>
+<p>​      test.call/apply(obj):临时让test成为obj的方法进行调用（让test的this指向obj)</p>
+<p>​       <em>(此时该函数不能用表达式的方法定义:函数声明，f就是指向函数对象的指针，这个对象里面就有call方法，然而第二种，var f，f只是一个变量，把它初始化为了一个函数)</em></p>
+<p>5.回调函数：</p>
+<p>​    （1）. 什么函数才是回调函数？</p>
+<p>你定义的–&gt;你没有调–&gt;最终他执行了</p>
+<p>   （ 2）.常见的回调函数：dom事件的回调函数、定时器回调函数、ajax 请求回调函数、生命周期回调函数;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//DOM事件回调函数</span></span><br><span class="line"></span><br><span class="line">​    btn.onclick = *<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;</span><br><span class="line">​      alert(<span class="built_in">this</span>.innerText);</span><br><span class="line">​    &#125;</span><br><span class="line">​    <span class="built_in">setTimeout</span>(*<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;</span><br><span class="line">​      alert(<span class="string">&quot;到点了&quot;</span>);</span><br><span class="line">​    &#125;,<span class="number">2000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>6.IIFE:</p>
+<p>(1).理解：</p>
+<p>(2).作用：隐藏实现、不会污染外部（全局）命名空间、用它来编码js模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 匿名函数自调用</span></span><br><span class="line">​    (*<span class="function"><span class="keyword">function</span>* <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">​      alert(<span class="string">&quot;222&quot;</span>);</span><br><span class="line">​    &#125;)();</span><br><span class="line">​    (*<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;</span><br><span class="line">​      *<span class="keyword">var</span>* a = <span class="number">1</span>;</span><br><span class="line">​      *<span class="function"><span class="keyword">function</span>* <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">​        <span class="built_in">console</span>.log(++a)</span><br><span class="line">​      &#125;</span><br><span class="line">​      <span class="built_in">window</span>.$ = *<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;  <span class="comment">//向外暴露一个全局函数</span></span><br><span class="line">​        <span class="keyword">return</span> &#123;</span><br><span class="line">​          test:test</span><br><span class="line">​        &#125;</span><br><span class="line">​      &#125;</span><br><span class="line">​    &#125;)()</span><br><span class="line">​    $().test();  <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<p>7.this:</p>
+<p>(1).this是什么？</p>
+<p>​      任何函数本质上都是通过某个对象来调用的，如果没有指定就是window</p>
+<p>​      所有函数内部都有一个变量this</p>
+<p>​      它的值是调用函数的当前对象</p>
+<p>​    (2).如何确定this的值</p>
+<p>​      test(): window</p>
+<p>​      p.test():p</p>
+<p>​      new test():新建对象</p>
+<p>​      p.call(obj):obj</p>
+<p>(练习参考11this)</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
