@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="数据结构与算法（线性表的定义和基本操作）：2.线性表的定义和基本操作2.1.1 线性表的定义线性表是具有相同数据类型的n（n&amp;gt;=0）个数据元素的有限序列，其中n为表长，当n=0时，线性表是一个,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>一月 11, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="数据结构与算法（线性表的定义和基本操作）："><a href="#数据结构与算法（线性表的定义和基本操作）：" class="headerlink" title="数据结构与算法（线性表的定义和基本操作）："></a>数据结构与算法（线性表的定义和基本操作）：</h1><h2 id="2-线性表的定义和基本操作"><a href="#2-线性表的定义和基本操作" class="headerlink" title="2.线性表的定义和基本操作"></a>2.线性表的定义和基本操作</h2><h4 id="2-1-1-线性表的定义"><a href="#2-1-1-线性表的定义" class="headerlink" title="2.1.1 线性表的定义"></a>2.1.1 线性表的定义</h4><p>线性表是具有<strong>相同数据类型</strong>的n（n&gt;=0）个数据元素的<strong>有限序列</strong>，其中n为表长，当n=0时，线性表是一个空表。若用L命名线性表，则一般表示为</p>
+<p>L=(a1, a2, …..,an)</p>
+<h4 id="2-1-2-基本操作"><a href="#2-1-2-基本操作" class="headerlink" title="2.1.2 基本操作"></a>2.1.2 基本操作</h4><p>&lt;1&gt; InitList(&amp;L) : <strong>初始化</strong>表，构造一个空的线性表L，<strong>分配内存空间</strong></p>
+<p>&lt;2&gt; DestroyList(&amp;L) :  <strong>销毁</strong>操作 。<strong>释放</strong>线性表L所占用的<strong>内存空间</strong></p>
+<p>&lt;3&gt; ListInsert(&amp;L,i,e) : <strong>插入</strong>操作，在表L中的第i个位置插入指定元素e</p>
+<p>&lt;4&gt; ListDelete(&amp;L,i,e) ：<strong>删除</strong>操作。删除表L中第i个位置的元素，并用e返回删除元素</p>
+<p>&lt;5&gt; LocateElem(L,e) : 按值查找操作。在表L中查找具有给定关键字值的元素</p>
+<p>&lt;4&gt; GetElem(L,i) : 按位查找操作。获取表L中第i个位置的元素的值</p>
+<p>其他常用操作：</p>
+<p>​        length(L) ：求表长，返回线性表L的长度，即L中数据的个数</p>
+<p>​        PrintList(L):输出操作。按前后顺序输出线性表L的所有元素</p>
+<p>​        Empty(L) : 判空操作。若L为空表，则返回true，否则返回false</p>
+<p>（tip：1.对数据的操作：创销，增删改查；</p>
+<p>2.c语言函数的定义–&lt;返回值类型&gt;函数名&lt;参数1类型&gt;参数1，。。。。。</p>
+<p>3.引用值的传入）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	x = <span class="number">1024</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;test函数的内部 x = %d\n&quot;</span>,x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;调用test前 x = %d\n&quot;</span>,x);</span><br><span class="line">	test(x);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;调用test后 x = %d\n&quot;</span>,x);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> &amp; x)</span></span>&#123;</span><br><span class="line">	x = <span class="number">1024</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;test函数的内部 x = %d\n&quot;</span>,x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;调用test前 x = %d\n&quot;</span>,x);</span><br><span class="line">	<span class="built_in">test</span>(x);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;调用test后 x = %d\n&quot;</span>,x);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-2-1-顺序表的定义"><a href="#2-2-1-顺序表的定义" class="headerlink" title="2.2.1 顺序表的定义"></a>2.2.1 顺序表的定义</h4><h6 id="lt-1-gt-顺序表"><a href="#lt-1-gt-顺序表" class="headerlink" title="&lt;1&gt;顺序表"></a>&lt;1&gt;顺序表</h6><p>–用<strong>顺序存储</strong>的方式实现线性表顺序存储。（把<strong>逻辑上相邻</strong>的元素存储在<strong>物理位置</strong>上也相邻的存储单元中）</p>
+<p><em>如何知道一个数据元素的大小？   sizeof(int) = 4B</em></p>
+<h6 id="lt-2-gt-顺序表的实现–静态分配"><a href="#lt-2-gt-顺序表的实现–静态分配" class="headerlink" title="&lt;2&gt;顺序表的实现–静态分配"></a>&lt;2&gt;顺序表的实现–静态分配</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#define MaxSize 10       //定义最大长度</span><br><span class="line">typedef struct&#123;</span><br><span class="line">	ElemType data[MaxSize];    //用静态的&quot;数组&quot;存放数据元素</span><br><span class="line">	int length;				//顺序表的当前长度</span><br><span class="line">&#125;SqList;		</span><br><span class="line">//基本操作——初始化一个顺序表 </span><br><span class="line">void InitList(SqList &amp; L)&#123;</span><br><span class="line">	for(int i =0; i &lt; MaxSize;++i)&#123;</span><br><span class="line">		L.data[i] = 0;   //将所有数据元素设置为默认初始值 </span><br><span class="line">	&#125;</span><br><span class="line">	L.length = 0;    //顺序表初始长度为0 </span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	SqList L;     //声明一个顺序表</span><br><span class="line">	InitList(L);  //初始化顺序表 </span><br><span class="line">	//.....后续操作 </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（<strong>静态数组的长度一旦声明，就不能再改变</strong>，<em>存储空间不可改变</em>）</p>
+<h6 id="–动态分配"><a href="#–动态分配" class="headerlink" title="–动态分配"></a>–动态分配</h6><p>通过malloc(<em>返回一个指针</em>)、free函数实现</p>
+<p>L.data = (ElemType * )malloc(sizeof(ElemType) × Initsize)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#define InitSize 10  //顺序表的初始长度 </span><br><span class="line">typedef struct&#123;</span><br><span class="line">	ElemType * data;  //指示动态分配数组的指针 </span><br><span class="line">	int MaxSize;  //顺序表的最大容量 </span><br><span class="line">	int length;   //顺序表的当前长度 </span><br><span class="line">&#125;SeqList;</span><br><span class="line"></span><br><span class="line">//基本操作——初始化一个顺序表</span><br><span class="line">void InitList(SeqaList &amp; L)&#123;</span><br><span class="line">	//用malloc 函数申请一片连续的存储空间</span><br><span class="line">	L.data = (int * )malloc(InitSize * sizeof(int));</span><br><span class="line">	L.length = 0;</span><br><span class="line">	L.MaxSize = InitSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//动态增加数组长度</span><br><span class="line">void IncreaseSize(SeqList &amp; L,int len) &#123;</span><br><span class="line">	int * p = L.data;</span><br><span class="line">	L.data = (int *)malloc((L.MaxSize + len)*sizeof(int));</span><br><span class="line">	for(int i = 0; i &lt;L.length; i++)&#123;</span><br><span class="line">		L.data[i] = p[i];  //将数据复制到新区域 </span><br><span class="line">	&#125;</span><br><span class="line">	L.MaxSize =+ len;    //顺序表最大长度增加 len </span><br><span class="line">	free(p);     //释放原来的内存空间 </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[]) &#123;</span><br><span class="line">	SeqList L;   //声明一个顺序表</span><br><span class="line">	InitList(L) ;//初始化顺序表</span><br><span class="line">	//。。。。往顺序表中随便插入几个元素。。。</span><br><span class="line">	IncreaseSize(L,5);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>（<strong>动态分配的数组长度和大小是可以改变的</strong>）</p>
+<h6 id="lt-3-gt-顺序表的特点"><a href="#lt-3-gt-顺序表的特点" class="headerlink" title="&lt;3&gt;顺序表的特点"></a>&lt;3&gt;顺序表的特点</h6><p>–随机访问</p>
+<h4 id="2-2-2-1-顺序表的插入和删除"><a href="#2-2-2-1-顺序表的插入和删除" class="headerlink" title="2.2.2 1 顺序表的插入和删除"></a>2.2.2 <em>1</em> 顺序表的插入和删除</h4><h6 id="lt-1-gt-插入"><a href="#lt-1-gt-插入" class="headerlink" title="&lt;1&gt;插入"></a>&lt;1&gt;插入</h6><p>ListInsert(&amp;L,i,e) : 插入操作。在表L中的第i个位置上插入指定元素e</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#define MaxSize 10 //定义最大长度 </span><br><span class="line">typedef struct&#123;</span><br><span class="line">	int data[MaxSize];  //用静态的“数组” 存放元素</span><br><span class="line">	int length;   //顺序表当前的长度 </span><br><span class="line">&#125;SqList;   //顺序表的类型定义 </span><br><span class="line"></span><br><span class="line">//添加 </span><br><span class="line">void ListInsert(SqList &amp; L ,int i , int e)&#123;</span><br><span class="line">	for(int j = L.length ; j &gt;= i ; j--)&#123;    //将第i个元素及之后的元素后移 </span><br><span class="line">		L.data[j] = L.data[j-1];</span><br><span class="line">	&#125;</span><br><span class="line">	L.data[i-1] = e;   //在位置i处放入e</span><br><span class="line">	L.length++;   //长度加1  </span><br><span class="line">&#125;</span><br><span class="line">int main(int argc, char** argv) &#123;</span><br><span class="line">	SqList L;   //声明一个顺序表 </span><br><span class="line">	InitList(L);   //初始化顺序表 </span><br><span class="line">	//...此处省略一些代码，插入几个元素</span><br><span class="line">	ListInsert(L,3,3);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(<em>需要进行 i 的合法判断，[1,length+1] ，检查顺序表是否存满</em>)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#define MaxSize 10 //定义最大长度 </span><br><span class="line">typedef struct&#123;</span><br><span class="line">	int data[MaxSize];  //用静态的“数组” 存放元素</span><br><span class="line">	int length;   //顺序表当前的长度 </span><br><span class="line">&#125;SqList;   //顺序表的类型定义 </span><br><span class="line"></span><br><span class="line">//添加 </span><br><span class="line">bool ListInsert(SqList &amp; L ,int i , int e)&#123;</span><br><span class="line">	if(i&lt;1 || i&gt;L.length+1)			//判断i的值是否有效</span><br><span class="line">		return false;</span><br><span class="line">	if(L.length &gt;= MaxSize)		//当前的存储空间已满，不能插入</span><br><span class="line">		return false;</span><br><span class="line">	for(int j = L.length ; j &gt;= i ; j--)&#123;    //将第i个元素及之后的元素后移 </span><br><span class="line">		L.data[j] = L.data[j-1];</span><br><span class="line">	&#125;</span><br><span class="line">	L.data[i-1] = e;   //在位置i处放入e</span><br><span class="line">	L.length++;   //长度加1</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line">int main(int argc, char** argv) &#123;</span><br><span class="line">	SqList L;   //声明一个顺序表 </span><br><span class="line">	InitList(L);   //初始化顺序表 </span><br><span class="line">	//...此处省略一些代码，插入几个元素</span><br><span class="line">	ListInsert(L,3,3);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(具有健壮性，能处理异常情况，并给使用者反馈)</p>
+<p>时间复杂度：O(n)</p>
+<h6 id="lt-2-gt-删除"><a href="#lt-2-gt-删除" class="headerlink" title="&lt;2&gt;删除"></a>&lt;2&gt;删除</h6><p>ListDelete(&amp;L,i,&amp;e) :删除表L中第i个位置的元素，并用e返回删除元素的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//删除 </span><br><span class="line">bool ListDelete(SqList &amp; L, int i, int &amp; e)&#123;</span><br><span class="line">	if(i&lt;1 || i&gt;L.length)&#123;   //判断i的范围是否有效 </span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">	e = L.data[i-1];    //将被删除的元素赋值给 e </span><br><span class="line">	for(int j = i; j &lt; L.length; j++)&#123; //将第i个位置后的元素前移 </span><br><span class="line">		L.data[j-1] = L.data[j];</span><br><span class="line">	&#125;</span><br><span class="line">	L.length--;    //线性表长度减1 </span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv) &#123;</span><br><span class="line">	SqList L;   //声明一个顺序表 </span><br><span class="line">	InitList(L);   //初始化顺序表 </span><br><span class="line">	//...此处省略一些代码，插入几个元素</span><br><span class="line">	ListInsert(L,3,3);</span><br><span class="line">	</span><br><span class="line">	int e = -1;   //用变量e把删除元素&quot;带回来&quot;</span><br><span class="line">	if(ListDelete(L,3,e)) &#123;</span><br><span class="line">		printf(&quot;已删除第3个元素，删除元素的值为 %d \n&quot;,e);</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		printf(&quot;位序i不合法，删除失败\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"> 	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度：O(n)</p>
+<h4 id="2-2-2-2-顺序表的查找"><a href="#2-2-2-2-顺序表的查找" class="headerlink" title="2.2.2 2 顺序表的查找"></a>2.2.2 <em>2</em> 顺序表的查找</h4><h6 id="lt-1-gt-GetElem-L-i-按位查找。获取表L中第i个位置的元素的值"><a href="#lt-1-gt-GetElem-L-i-按位查找。获取表L中第i个位置的元素的值" class="headerlink" title="&lt;1&gt;GetElem(L,i):按位查找。获取表L中第i个位置的元素的值"></a>&lt;1&gt;GetElem(L,i):按位查找。获取表L中第i个位置的元素的值</h6><p><em>–静态分配方式</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//静态分配方式</span><br><span class="line"></span><br><span class="line">#define MaxSize 10  //定义最大长度 </span><br><span class="line">typedef struct&#123;</span><br><span class="line">	ElemType data[MaxSize];    //用静态的数组存放数据元素 </span><br><span class="line">	int length;			//顺序表的当前长度 </span><br><span class="line">&#125;SqList;   						//顺序表的类型定义（静态分布方式） </span><br><span class="line"></span><br><span class="line">//按位查找 </span><br><span class="line">ElemType GetElem(SqList L, int i) &#123;</span><br><span class="line">	return L.data[i-1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>–动态分配的方式</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//动态分配内存 </span><br><span class="line">typedef struct&#123;</span><br><span class="line">	ElemType * data;    //指示动态分配数组的指针 </span><br><span class="line">	int MaxSize;     //顺序表的最大容量 </span><br><span class="line">	int length;		 //顺序表的当前长度 </span><br><span class="line">&#125;SqList; </span><br><span class="line">ElemType GetElem(SqList L, int i) &#123;</span><br><span class="line">	return L.data[i-1];  //访问方式和普通数组的方式一样 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="lt-2-gt-LocateElem-L-e-按值查找。"><a href="#lt-2-gt-LocateElem-L-e-按值查找。" class="headerlink" title="&lt;2&gt;LocateElem(L,e):按值查找。"></a>&lt;2&gt;LocateElem(L,e):按值查找。</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//按值查找 </span><br><span class="line">#define InitSize 10    //顺序表的初始长度 </span><br><span class="line">typedef struct&#123;</span><br><span class="line">	ElemType * data;    //指示动态分配数组的指针 </span><br><span class="line">	int MaxSize;     //顺序表的最大容量 </span><br><span class="line">	int length;		 //顺序表的当前长度 </span><br><span class="line">&#125;SqList; </span><br><span class="line"></span><br><span class="line">int LocateElem(SqList L , ElemType e)&#123;</span><br><span class="line">	for(int i = 0; i&lt;L.length;i++)</span><br><span class="line">		if(L.data[i] == e)&#123;</span><br><span class="line">			return i+1;</span><br><span class="line">		&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度：O(n)</p>
+<h4 id="2-3-1-单链表的定义"><a href="#2-3-1-单链表的定义" class="headerlink" title="2.3.1 单链表的定义"></a>2.3.1 单链表的定义</h4><p>（LinkList：强调这是一个单链表；LNode*：强调这是一个结点）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct LNode&#123;      //定义单链表结点类型 </span><br><span class="line">	ElemType data;      //每个结点存放一个数据元素 </span><br><span class="line">	struct LNode * next;    //指针指向下一个节点 </span><br><span class="line">&#125;LNode,*LinkList; </span><br></pre></td></tr></table></figure>
+
+<h6 id="lt-1-gt-不带头结点的单链表"><a href="#lt-1-gt-不带头结点的单链表" class="headerlink" title="&lt;1&gt;不带头结点的单链表"></a>&lt;1&gt;不带头结点的单链表</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">typedef struct LNode&#123;      </span><br><span class="line">	ElemType data;       </span><br><span class="line">	struct LNode * next;   </span><br><span class="line">&#125;LNode,*LinkList; </span><br><span class="line"></span><br><span class="line">//初始化一个空的单链表</span><br><span class="line">bool InitList(LinkList &amp; L)&#123;</span><br><span class="line">	L = NULL;   //空表，暂时还没有任何结点 </span><br><span class="line">	return true;</span><br><span class="line">&#125; </span><br><span class="line">void test()&#123;</span><br><span class="line">	LinkList L;   //声明一个指向单链表的指针 </span><br><span class="line">	//初始化一个空表 </span><br><span class="line">	InitList(L);</span><br><span class="line">	//....后续代码 </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h6 id="lt-2-gt-带头结点的单链表"><a href="#lt-2-gt-带头结点的单链表" class="headerlink" title="&lt;2&gt;带头结点的单链表"></a>&lt;2&gt;带头结点的单链表</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">typedef struct LNode&#123;      //定义单链表结点类型 </span><br><span class="line">	ElemType data;      //每个结点存放一个数据元素 </span><br><span class="line">	struct LNode * next;    //指针指向下一个节点 </span><br><span class="line">&#125;LNode,*LinkList; </span><br><span class="line">//初始化一个空的单链表</span><br><span class="line">bool InitList(LinkList &amp; L)&#123;</span><br><span class="line">	L = (LNode *)malloc(sizeof(LNode));   //分配一个头结点 </span><br><span class="line">	if(L == NULL)         //内存不足，分配失败 </span><br><span class="line">		return false;</span><br><span class="line">	L-&gt;next = NULL;       //头结点之后暂时还没有节点 </span><br><span class="line">	return true;</span><br><span class="line">&#125; </span><br><span class="line">void test()&#123;</span><br><span class="line">	LinkList L;   //声明一个指向单链表的指针 </span><br><span class="line">	//初始化一个空表 </span><br><span class="line">	InitList(L);</span><br><span class="line">	//....后续代码 </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-2-1-单链表的插入和删除"><a href="#2-3-2-1-单链表的插入和删除" class="headerlink" title="2.3.2 1 单链表的插入和删除"></a>2.3.2 <em>1</em> 单链表的插入和删除</h4><h6 id="lt-1-gt-插入-1"><a href="#lt-1-gt-插入-1" class="headerlink" title="&lt;1&gt;插入"></a>&lt;1&gt;插入</h6><p>按位序插入：Listinsert(&amp;L,i,e)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//在第 i 个位置插入元素 e（带头结点） </span><br><span class="line">bool ListInsert(LinkList &amp; L, int i, Elemtype e)&#123;</span><br><span class="line">	if(i&lt;1) </span><br><span class="line">		return false;</span><br><span class="line">	LNode * p;     //指针p指向当前扫描到的节点</span><br><span class="line">	int j = 0;     //当前p指向的是第几个节点</span><br><span class="line">	p = L;			//l指向头结点， 头结点是第0个节点（不存在数据）</span><br><span class="line">	while (p!=NULL &amp;&amp; j&lt;i-1)&#123;    //循环找到第 i-1 个节点 </span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	if(p == NULL)     //i值不合法 </span><br><span class="line">		return false;</span><br><span class="line">	LNode * s = (LNode *)malloc(sizeof(LNode));</span><br><span class="line">	s-&gt;data = e;</span><br><span class="line">	s-&gt;next = p-&gt;next;</span><br><span class="line">	p-&gt;next = s;    //将节点s连到p之后 </span><br><span class="line">	return true;    //插入成功 </span><br><span class="line">	 </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>平均时间复杂度：O(n)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//在第 i 个位置插入元素 e（不带头结点） </span><br><span class="line">bool ListInsert(LinkList &amp; L, int i, Elemtype e)&#123;</span><br><span class="line">	if(i&lt;1) </span><br><span class="line">		return false;</span><br><span class="line">	if(i==1) &#123;  //插入第1个结点的操作和其他结点操作不同 </span><br><span class="line">		LNode * s = (LNode *)malloc(sizeof(LNode));</span><br><span class="line">		s-&gt;data = e;</span><br><span class="line">		s-&gt;next = L;</span><br><span class="line">		L = s;			//头指针指向新结点 </span><br><span class="line">		return true; </span><br><span class="line">	&#125;</span><br><span class="line">	LNode * p;     //指针p指向当前扫描到的节点</span><br><span class="line">	int j = 1;     //当前p指向的是第几个节点</span><br><span class="line">	p = L;			//p 指向第一个结点 （不是头结点） </span><br><span class="line">	while (p!=NULL &amp;&amp; j&lt;i-1)&#123;    //循环找到第 i-1 个节点 </span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	if(p == NULL)     //i值不合法 </span><br><span class="line">		return false;</span><br><span class="line">	LNode * s = (LNode *)malloc(sizeof(LNode));</span><br><span class="line">	s-&gt;data = e;</span><br><span class="line">	s-&gt;next = p-&gt;next;</span><br><span class="line">	p-&gt;next = s;    //将节点s连到p之后 </span><br><span class="line">	return true;    //插入成功 </span><br><span class="line">	 </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//后插操作：在p结点之后插入元素 e</span><br><span class="line">bool InsertNextNode (LNode * p ,Elemtype e)&#123;</span><br><span class="line">	if(p == NULL)</span><br><span class="line">		return false;</span><br><span class="line">	LNode * s =(LNode *)malloc(sizeof(LNode));</span><br><span class="line">	if(s == NULL)     //分配内存失败 </span><br><span class="line">		return false;</span><br><span class="line">	s-&gt;data = e;	  //用结点s保存数据元素e </span><br><span class="line">	s-&gt;next =p-&gt;next;</span><br><span class="line">	p-&gt;next = s;	  //将结点s连到p之后 </span><br><span class="line">	return true;</span><br><span class="line">&#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度:O(1)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//在第i个位置插入元素e（带头结点）</span><br><span class="line">bool ListInsert(LinkList &amp; L, int i , ElemType e)&#123;</span><br><span class="line">	if(i&lt;1)</span><br><span class="line">		return false;</span><br><span class="line">	LNode * p;  //指针p指向当前扫描到的结点</span><br><span class="line">	int j = 0;   //当前p指向的是第几个结点 </span><br><span class="line">	 p = L;    // L指向头结点，头结点是第0个结点（不存数据）</span><br><span class="line">	 while(p!=NULL  &amp;&amp; j &lt; i-1)&#123;   //循环找到第 i-1 个结点 </span><br><span class="line">	 	p = p-&gt;next;</span><br><span class="line">		j++; </span><br><span class="line">	 &#125;</span><br><span class="line">	 </span><br><span class="line">	 //可以通过调用return InsertNextNode(p,e)完成 </span><br><span class="line">	if(p == NULL)    //i值不合法 </span><br><span class="line">	 	return false;</span><br><span class="line">	LNode * s =(LNode *)malloc(sizeof(LNode));</span><br><span class="line">	s-&gt;data = e;</span><br><span class="line">	s-&gt;next = p-&gt;next;</span><br><span class="line">	p-&gt;next = s;	//将结点s连到p之后 </span><br><span class="line">	return true;    //插入成功 </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//前插操作：在p结点之前插入元素 e</span><br><span class="line">// 1.传入一个头指针  bool InsertPriorNode(LinkList L,LNode * p,ElemType e)</span><br><span class="line">//时间复杂度为O(n) </span><br><span class="line">//2.在指定元素后插入一个元素，并交换两个元素的值</span><br><span class="line">//时间复杂度为O(1)</span><br><span class="line">bool InsertPriorNode(LNode * p,ElemType e)&#123;</span><br><span class="line">	if(p == NULL) &#123;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">	LNode * s =(LNode *)malloc(sizeof(LNode));</span><br><span class="line">	if(s == NULL)    //分配内存失败 </span><br><span class="line">		return false;</span><br><span class="line">	s-&gt;next = p-&gt;next;</span><br><span class="line">	p-&gt;next = s;			//新结点 s 连到 p 之后 </span><br><span class="line">	s-&gt;data = p-&gt;data;		//将p中的元素复制到s中 </span><br><span class="line">	p-&gt;data = e; 		//  p 中元素覆盖位e </span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line">//3.王道版本 </span><br><span class="line">bool InsertPriorNode(LNode * p,LNode * s)&#123;</span><br><span class="line">	if(p == NULL || s == NULL)</span><br><span class="line">		return false;</span><br><span class="line">	s-&gt;next = p-&gt;next;</span><br><span class="line">	p-&gt;next = s;	//s连到p之后 </span><br><span class="line">	ElemType temp = p-&gt;data;   //交换数据域部分</span><br><span class="line">	p-&gt;data = s-&gt;data;</span><br><span class="line">	s-&gt;data = temp;</span><br><span class="line">	return true; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h6 id="lt-2-gt-删除-1"><a href="#lt-2-gt-删除-1" class="headerlink" title="&lt;2&gt;删除"></a>&lt;2&gt;删除</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//按位删除（带头结点） </span><br><span class="line">bool ListDelete(LinkList &amp;L,int i ,ElemType &amp; e)&#123;</span><br><span class="line">	if(i&lt;1)&#123;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">	LNode * p; //指针P指向当前扫描的结点</span><br><span class="line">	int j = 0;  //当前p指向的是第几个结点</span><br><span class="line">	p = L;	//	L指向头结点，头结点是第0个结点（不存数据）</span><br><span class="line">	while(p != NULL &amp;&amp; j &lt; i-1)&#123;    //循环找到第 i-1 个结点 </span><br><span class="line">		p = p-&gt;nextl</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	if(p == NULL)     //i值不合法 </span><br><span class="line">		return false;</span><br><span class="line">	if(p-&gt;next == NULL)  //第i-1个结点之后已无其他结点 </span><br><span class="line">		return false;</span><br><span class="line">	LNode * q = p-&gt;next;   //令q指向被删除结点 </span><br><span class="line">	e = q-&gt;data;		//用e返回元素的值 </span><br><span class="line">	p-&gt;next = q-&gt;next;    //将*q结点从链中“断开” </span><br><span class="line">	free(q);		//释放结点的存储空间 </span><br><span class="line">	return true;		//删除成功 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度：O(n)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//指定结点的删除</span><br><span class="line">//1.传入头指针</span><br><span class="line">//2.</span><br><span class="line">bool DeleteNode(LNode * p)&#123;</span><br><span class="line">	if(p == NULL)</span><br><span class="line">		return false;</span><br><span class="line">	LNode * q = p-&gt;next;    //令q指向*p的后继结点</span><br><span class="line">	p-&gt;data = p-&gt;next-&gt;data;   //和后继结点交换数据域</span><br><span class="line">	p-&gt;next = q-&gt;next;     //将 *q 结点从链中“断开” </span><br><span class="line">	free(q);       //释放后继结点的存储空间</span><br><span class="line">	return true; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
