@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="2.3.3_ 双链表&amp;lt;1&amp;gt;双链表的初始化（带头结点）1234567891011121314151617181920typedef struct DNode&amp;#123;	ElemType ,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>四月 28, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h4 id="2-3-3-双链表"><a href="#2-3-3-双链表" class="headerlink" title="2.3.3_ 双链表"></a>2.3.3_ 双链表</h4><h6 id="lt-1-gt-双链表的初始化（带头结点）"><a href="#lt-1-gt-双链表的初始化（带头结点）" class="headerlink" title="&lt;1&gt;双链表的初始化（带头结点）"></a>&lt;1&gt;双链表的初始化（带头结点）</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">DNode</span>&#123;</span></span><br><span class="line">	ElemType data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">DNode</span> * <span class="title">prior</span>,* <span class="title">next</span>;</span></span><br><span class="line">&#125;DNode,* DLinkList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">InitDLinkList</span><span class="params">(DLinkList &amp; L)</span></span>&#123;</span><br><span class="line">	L = (DNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(DNode));</span><br><span class="line">	<span class="keyword">if</span>(L == <span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	L-&gt;prior = <span class="literal">NULL</span>;</span><br><span class="line">	L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">	DLinkList L;</span><br><span class="line">	InitDLinkList(L);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="lt-2-gt-判断双链表是否为空（带头结点）"><a href="#lt-2-gt-判断双链表是否为空（带头结点）" class="headerlink" title="&lt;2&gt;判断双链表是否为空（带头结点）"></a>&lt;2&gt;判断双链表是否为空（带头结点）</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Empty</span><span class="params">(DLinkList L)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(L-&gt;next ==<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="lt-3-gt-双链表的插入"><a href="#lt-3-gt-双链表的插入" class="headerlink" title="&lt;3&gt;双链表的插入"></a>&lt;3&gt;双链表的插入</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在p结点后插入s结点 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">InsertNextDNode</span><span class="params">(DNode * p,DNode * s)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p == <span class="literal">NULL</span> || s == <span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	s-&gt;next = p-&gt;next;</span><br><span class="line">	<span class="keyword">if</span>(p-&gt;next != <span class="literal">NULL</span>)&#123;</span><br><span class="line">		p-&gt;next-&gt;prior = s;</span><br><span class="line">		s-&gt;prior = p;</span><br><span class="line">		p-&gt;next = s;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="lt-4-gt-双链表的删除"><a href="#lt-4-gt-双链表的删除" class="headerlink" title="&lt;4&gt;双链表的删除"></a>&lt;4&gt;双链表的删除</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除p的后继结点</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">DeleteNextDNode</span><span class="params">(DNode * p)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p == <span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	DNode * q = p-&gt;next;  <span class="comment">//找到p的后继结点</span></span><br><span class="line">	<span class="keyword">if</span>(q == <span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;    <span class="comment">//p没有后继结点 </span></span><br><span class="line">	&#125; </span><br><span class="line">	p-&gt;next = q-&gt;next;</span><br><span class="line">	<span class="keyword">if</span>(q-&gt;next != <span class="literal">NULL</span>)&#123;   <span class="comment">//q不是最后一个结点 </span></span><br><span class="line">		q-&gt;next-&gt;prior = p;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(q);    <span class="comment">//释放结点空间 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h6 id="lt-5-gt-双链表的销毁"><a href="#lt-5-gt-双链表的销毁" class="headerlink" title="&lt;5&gt;双链表的销毁"></a>&lt;5&gt;双链表的销毁</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DestoryList</span><span class="params">(DLinkList &amp; L)</span></span>&#123;</span><br><span class="line">	<span class="comment">//循环释放各个数据点</span></span><br><span class="line">	<span class="keyword">while</span>(L-&gt;next != <span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="built_in">DeleteNextDNode</span>(L);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="built_in">free</span>(L);  <span class="comment">//释放头结点 </span></span><br><span class="line">	L = <span class="literal">NULL</span>;   <span class="comment">//头指针指向NULL </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="lt-6-gt-双链表的遍历"><a href="#lt-6-gt-双链表的遍历" class="headerlink" title="&lt;6&gt;双链表的遍历"></a>&lt;6&gt;双链表的遍历</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//后向遍历</span></span><br><span class="line"><span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">	<span class="comment">//对结点p做相应的处理，如打印</span></span><br><span class="line">	p = p-&gt;next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//前向遍历</span></span><br><span class="line"><span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">	<span class="comment">//对结点p做相应的处理，如打印</span></span><br><span class="line">	p = p-&gt;prior;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//前向遍历(跳过头结点)</span></span><br><span class="line"><span class="keyword">while</span>(p-&gt;prior != <span class="literal">NULL</span>)&#123;</span><br><span class="line">	<span class="comment">//对结点p做相应的处理，如打印</span></span><br><span class="line">	p = p-&gt;prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>(双链表不可随机存取，按位查找，按值查找操作都只能用遍历的方式实现。时间复杂度为O(n) )</strong></p>
+<h4 id="2-3-4-循环链表"><a href="#2-3-4-循环链表" class="headerlink" title="2.3.4_ 循环链表"></a>2.3.4_ 循环链表</h4><h6 id="1-循环单链表-从一个结点出发，可以找到其他任何一个节点"><a href="#1-循环单链表-从一个结点出发，可以找到其他任何一个节点" class="headerlink" title="1.循环单链表(从一个结点出发，可以找到其他任何一个节点)"></a>1.循环单链表(从一个结点出发，可以找到其他任何一个节点)</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">	ElemType data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> * <span class="title">next</span>;</span></span><br><span class="line">&#125;LNode,* LinkList; </span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化一个循环单链表</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">InitList</span><span class="params">(LinkList &amp; L)</span></span>&#123;</span><br><span class="line">	L = (LNode*)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(LNode));</span><br><span class="line">	<span class="keyword">if</span>(L == <span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	L-&gt;next = L;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//判断循环单链表是否为空 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Empty</span><span class="params">(LinkList L)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(L-&gt;next == L)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//判断结点p是否为循环单链表的表尾结点</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isTail</span><span class="params">(LinkList L,LNode * p)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p-&gt;next == L)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h6 id="2-循环双链表"><a href="#2-循环双链表" class="headerlink" title="2.循环双链表"></a>2.循环双链表</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">DNode</span>&#123;</span></span><br><span class="line">	ElemType data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">DNode</span> * <span class="title">prior</span>,* <span class="title">next</span>;</span></span><br><span class="line">&#125;DNode,*DLinkList;</span><br><span class="line"><span class="comment">//初始化空的循环双链表</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">InitDLinkList</span><span class="params">(DLinkList &amp; L)</span></span>&#123;</span><br><span class="line">	L = (DNode *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(DNode));</span><br><span class="line">	<span class="keyword">if</span>(L == <span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	L-&gt;next = L;</span><br><span class="line">	L-&gt;prior = L;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//判断循环双链表是否为空</span></span><br><span class="line"><span class="keyword">bool</span> <span class="built_in">Empty</span>(DLinkList L)&#123;</span><br><span class="line">	<span class="keyword">if</span>(L-&gt;next == L)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//判断结点p是否为循环双链表的表尾结点</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isTail</span><span class="params">(DLinkList L,DNode * p)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p-&gt;next == L)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-5-静态链表"><a href="#2-3-5-静态链表" class="headerlink" title="2.3.5_ 静态链表"></a>2.3.5_ 静态链表</h4><h6 id="lt-1-gt-静态链表："><a href="#lt-1-gt-静态链表：" class="headerlink" title="&lt;1&gt;静态链表："></a>&lt;1&gt;静态链表：</h6><p>分配一整片连续的内存空间，各个节点集中安置</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 10   <span class="comment">//静态链表最大长度 </span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span>		<span class="comment">//静态链表结构类型的定义 </span></span><br><span class="line">	ElemType data;		<span class="comment">//存储数据元素 </span></span><br><span class="line">	<span class="keyword">int</span> next;			<span class="comment">//下一个元素的数组下标 </span></span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSLinkList</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Node</span> <span class="title">a</span>[<span class="title">MaxSize</span>];</span></span><br><span class="line">	<span class="comment">//...后续代码 </span></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//课本写法</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 10 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	ElemType data;		<span class="comment">//存储数据元素 </span></span><br><span class="line">	<span class="keyword">int</span> next;</span><br><span class="line">&#125;SLinkList[MaxSize]; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSLinkList</span><span class="params">()</span></span>&#123;</span><br><span class="line">	SLinkList a;</span><br><span class="line">	<span class="comment">//...后续代码 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

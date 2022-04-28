@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="4.2_1_串的朴素模式匹配算法1.串的模式匹配在主串中找到与模式串相同的子串，并返回其所在位置。
+2.朴素模式匹配算法12345678910111213141516171819int Index(,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>四月 28, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h3 id="4-2-1-串的朴素模式匹配算法"><a href="#4-2-1-串的朴素模式匹配算法" class="headerlink" title="4.2_1_串的朴素模式匹配算法"></a>4.2_1_串的朴素模式匹配算法</h3><h4 id="1-串的模式匹配"><a href="#1-串的模式匹配" class="headerlink" title="1.串的模式匹配"></a>1.串的模式匹配</h4><p>在主串中找到与模式串相同的子串，并返回其所在位置。</p>
+<h4 id="2-朴素模式匹配算法"><a href="#2-朴素模式匹配算法" class="headerlink" title="2.朴素模式匹配算法"></a>2.朴素模式匹配算法</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Index</span><span class="params">(SString S, SString T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k = <span class="number">1</span>;   <span class="comment">//or不设置K</span></span><br><span class="line">	<span class="keyword">int</span> i = k, j = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=S.length &amp;&amp; j&lt;=T.length)&#123;</span><br><span class="line">		<span class="keyword">if</span>(S.ch[i] == T.ch[j])&#123;</span><br><span class="line">			i++;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			k++;</span><br><span class="line">			i = k;  <span class="comment">//or i = i-j+2;</span></span><br><span class="line">			j=<span class="number">1</span>; </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(j&gt;T.length)&#123;</span><br><span class="line">		<span class="keyword">return</span> k;   <span class="comment">//or i-T.length; </span></span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-朴素模式匹配算法思想"><a href="#3-朴素模式匹配算法思想" class="headerlink" title="3.朴素模式匹配算法思想"></a>3.朴素模式匹配算法思想</h4><p>将主串中与模式串长度相同的子串搞出来，挨个与模式串对比，当子串与模式串某个对应字符不匹配时，就立即放弃当前子串，转而检索下一个子串。</p>
+<p>若模式串长度为m，主串长度为n,则直到匹配成功/匹配失败最多需要(n-m+1)*m次比较。</p>
+<p>最坏情况：每个子串的前m-2个字符都和模式串匹配，只有第m个字符不匹配。</p>
+<p>比较好的情况：每个子串的第一个字符就与模式串不匹配</p>
+<h4 id="3-朴素模式匹配算法的缺点："><a href="#3-朴素模式匹配算法的缺点：" class="headerlink" title="3.朴素模式匹配算法的缺点："></a>3.朴素模式匹配算法的缺点：</h4><p>当某些子串与模式串能部分匹配时，主串的扫描指针i经常回溯，导致时间开销增加。最坏时间复杂度O(nm)</p>
+<h3 id="4-2-3-串的KMP模式匹配算法"><a href="#4-2-3-串的KMP模式匹配算法" class="headerlink" title="4.2_3_串的KMP模式匹配算法"></a>4.2_3_串的KMP模式匹配算法</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Index_KMP</span><span class="params">(SString S, SString T, next[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=S.length &amp;&amp; j&lt;=T.length)&#123;</span><br><span class="line">		<span class="keyword">if</span>(j==<span class="number">0</span> || S.ch[i] == T.ch[j])&#123;</span><br><span class="line">			i++;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			j = next[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(j &gt; T.length)&#123;</span><br><span class="line">		<span class="keyword">return</span> i-T.length;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求模式串T的next数组</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_next</span><span class="params">(SString T, <span class="keyword">int</span> next[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">1</span>, j=<span class="number">0</span>;</span><br><span class="line">	next[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;T.length)&#123;</span><br><span class="line">		<span class="keyword">if</span>(j==<span class="number">0</span> || T.ch[i] == T.ch[j])&#123;</span><br><span class="line">			++i;</span><br><span class="line">			++j;</span><br><span class="line">			<span class="comment">//若pi=pj,则next[j+1]=next[j]+1 </span></span><br><span class="line">			next[i] = j; </span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="comment">//否则令j=next[j],循环继续</span></span><br><span class="line">			j=next[j]; </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//KMP算法</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Index_KMP</span><span class="params">(SString S, SString T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">1</span>, j=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> next[T.length+<span class="number">1</span>];</span><br><span class="line">	get_next(T,next);   <span class="comment">//求模式串的next数组</span></span><br><span class="line">	<span class="keyword">while</span>(i&lt;=S.length &amp;&amp; j&lt;=T.length)&#123;</span><br><span class="line">		<span class="keyword">if</span>(j==<span class="number">0</span> || S.ch[i]==T.ch[i])&#123;</span><br><span class="line">			i++;</span><br><span class="line">			j++;   <span class="comment">//继续比较后继的字符 </span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			j = next[j];   <span class="comment">//模式串向右移动 </span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(j&gt;T.length)</span><br><span class="line">		<span class="keyword">return</span> i-T.length;   <span class="comment">//匹配成功</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="1-KMP算法特点"><a href="#1-KMP算法特点" class="headerlink" title="1.KMP算法特点"></a>1.KMP算法特点</h4><p>当子串和模式串不匹配时，主串指针i不回溯，模式串指针j=next[j]</p>
+<p>算法平均时间复杂度：O(n+m)</p>
+<h4 id="2-next数组手算方法"><a href="#2-next数组手算方法" class="headerlink" title="2.next数组手算方法"></a>2.next数组手算方法</h4><p>当第j个字符匹配失败，由前1~j-1个字符组成的串记为S，则：next[j]=S的最长相等前后缀长度+1</p>
+<p>特别地：next[1]=0;  next[2]=1;</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

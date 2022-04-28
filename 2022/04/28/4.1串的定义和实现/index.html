@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="4.1串的定义和实现4.1_1_串的定义和基本操作1.串的定义串，即字符串(String) 是由零个或多个字符组成的有限序列，一般记为’a1 a2 …..an’(n&amp;gt;=0)
+其中，S是串名，单,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>四月 28, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="4-1串的定义和实现"><a href="#4-1串的定义和实现" class="headerlink" title="4.1串的定义和实现"></a>4.1串的定义和实现</h2><h3 id="4-1-1-串的定义和基本操作"><a href="#4-1-1-串的定义和基本操作" class="headerlink" title="4.1_1_串的定义和基本操作"></a>4.1_1_串的定义和基本操作</h3><h4 id="1-串的定义"><a href="#1-串的定义" class="headerlink" title="1.串的定义"></a>1.串的定义</h4><p>串，即字符串(String) 是由<strong>零个或多个字符组成</strong>的有限序列，一般记为’a1 a2 …..an’(n&gt;=0)</p>
+<p>其中，S是串名，单引号括起来的字符序列是串的值；ai可以是字母、数字或其他字符；串中字符的个数n称为串的长度。n=0时的串称为空串。</p>
+<p>子串：串中任意个<strong>连续的</strong>字符组成的子序列</p>
+<p>主串：包含子串的串</p>
+<p>字符在主串中的位置：字符在串中的序号(从1开始)</p>
+<p>子符在主串中的位置：子串的第一个字符在主串中的位置</p>
+<p>(<strong>串的数据对象限定为字符集</strong>，eg：中文字符、英文字符、数字字符、标点字符等)</p>
+<h4 id="2-串的基本操作"><a href="#2-串的基本操作" class="headerlink" title="2.串的基本操作"></a>2.串的基本操作</h4><p>StrAssign(&amp;T,chars):<strong>赋值</strong>操作。把串T赋值为chars</p>
+<p>StrCopy(&amp;T,S):<strong>复制</strong>操作。由串S复制得到串T</p>
+<p>StrEmpty(S):<strong>判空</strong>操作。若S为空串，则返回TRUE，否则返回FALSE。</p>
+<p>StrLength(S):<strong>求串长</strong>。返回串S的元素个数。</p>
+<p>ClearString(&amp;S):<strong>清空</strong>操作。将S清空为空串.</p>
+<p>DestroyString(&amp;S):<strong>销毁</strong>串。将串S 销毁(回收存储空间)</p>
+<p>Concat(&amp;T,S1,S2):<strong>串联接</strong>。用T返回由S1和S2联接而成的新串</p>
+<p>SubString(&amp;Sub,S,pos,len):<strong>求子串</strong>。用Sub返回串S的第pos个字符起长度为len的子串。</p>
+<p>Index(S,T):<strong>定位</strong>操作。若主串S中存在与串T值相同的子串，则返回它在主串S中第一次出现的位置；否则函数值为0.</p>
+<p>StrCompare(S,T):比较操作。若S&gt;T,则返回值&gt;0;若S=T,则返回值=0;若S&lt;T，则返回值&lt;0。</p>
+<h3 id="4-1-2-串的存储结构"><a href="#4-1-2-串的存储结构" class="headerlink" title="4.1_2_串的存储结构"></a>4.1_2_串的存储结构</h3><h4 id="1-串的顺序存储"><a href="#1-串的顺序存储" class="headerlink" title="1.串的顺序存储"></a>1.串的顺序存储</h4><h5 id="：静态数组的实现-定长顺序存储"><a href="#：静态数组的实现-定长顺序存储" class="headerlink" title="：静态数组的实现(定长顺序存储)"></a>：静态数组的实现(定长顺序存储)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXLEN 255   <span class="comment">//预定义最大串长为255</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> ch[MAXLEN];    <span class="comment">//每个分量存储一个字符</span></span><br><span class="line">	<span class="keyword">int</span> length;			<span class="comment">//串的实际长度</span></span><br><span class="line">&#125;SString;</span><br></pre></td></tr></table></figure>
+
+<h5 id="：动态数组的实现-堆分配存储"><a href="#：动态数组的实现-堆分配存储" class="headerlink" title="：动态数组的实现(堆分配存储)"></a>：动态数组的实现(堆分配存储)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXLEN 255</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> *ch;   <span class="comment">//按串长分配存储区，ch指向串的基地址</span></span><br><span class="line">	<span class="keyword">int</span> length;  <span class="comment">//串的长度</span></span><br><span class="line">&#125;HString; </span><br><span class="line"></span><br><span class="line">HString S;</span><br><span class="line">S.ch = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(MAXLEN*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));<span class="comment">//free</span></span><br><span class="line">S.length = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-串的链式存储"><a href="#2-串的链式存储" class="headerlink" title="2.串的链式存储"></a>2.串的链式存储</h4><h5 id="：方案一"><a href="#：方案一" class="headerlink" title="：方案一"></a>：方案一</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">StringNode</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> ch;     <span class="comment">//每个结点存1个字符</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">StringNode</span> * <span class="title">next</span>;</span></span><br><span class="line">&#125;StringNode, *String; </span><br></pre></td></tr></table></figure>
+
+<p>(存储密度低：每个字节1B，每个指针4B)</p>
+<h5 id="：方案二"><a href="#：方案二" class="headerlink" title="：方案二"></a>：方案二</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">StringNode</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> ch[<span class="number">4</span>];     <span class="comment">//每个结点存4个字符</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">StringNode</span> * <span class="title">next</span>;</span></span><br><span class="line">&#125;StringNode, *String;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-基本操作的实现"><a href="#3-基本操作的实现" class="headerlink" title="3.基本操作的实现"></a>3.基本操作的实现</h4><h5 id="：求子串"><a href="#：求子串" class="headerlink" title="：求子串"></a>：求子串</h5><p>SubString(&amp;Sub,S,pos,len)  求子串*(用Sub返回串S的第pos个字符起长度为len的子串)*</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SubString</span><span class="params">(SString &amp; Sub, SString S, <span class="keyword">int</span> pos, <span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">	<span class="comment">//子串范围越界</span></span><br><span class="line">	<span class="keyword">if</span>(pos+len<span class="number">-1</span> &gt; S.length)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = pos; i &lt; pos+len; ++i)&#123;</span><br><span class="line">		Sub.cha[i-pos+<span class="number">1</span>] = S.ch[i];</span><br><span class="line">	&#125;</span><br><span class="line">	Sub.length = len;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="：比较"><a href="#：比较" class="headerlink" title="：比较"></a>：比较</h5><p>StrCompare(S,T):比较操作。若S=T，则返回值=0。 </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">StrCompare</span><span class="params">(SString S, SString T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;S.length &amp;&amp; i&lt;T.length; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(S.ch[i] != T.ch[i])&#123;</span><br><span class="line">			<span class="keyword">return</span> S.ch[i] - T.ch[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> S.length - T.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="定位"><a href="#定位" class="headerlink" title=":定位"></a>:定位</h5><p>Index(S,T):定位操作，若主串S中存在与串T值相同的主串，则返回它在主串S中第一次出现的位置；否则函数值为0</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Index</span><span class="params">(SString S, SString T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = StrLength(S), m = StrLength(T);\</span><br><span class="line">	SString Sub;  <span class="comment">//用于暂存子串 </span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;n-m+<span class="number">1</span>; i++)&#123;</span><br><span class="line">		SubString(Sub,S,i,m);</span><br><span class="line">		<span class="keyword">if</span>(StrCompare(Sub,T) == <span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
